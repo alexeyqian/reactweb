@@ -30,7 +30,7 @@ export const defaultState = {
         id:"T1",
         group:"G1",
         owner:"U1",
-        isComplete:false,
+        isComplete:false
     },{
         name:"Meet with CTO",
         id:"T2",
