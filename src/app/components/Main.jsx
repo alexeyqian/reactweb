@@ -18,9 +18,9 @@ export const Main = () => (
                 render={()=>(<ConnectedDashboard/>)} />                    
             <Route
                 exact
-                patch="/task/:id"
+                path="/task/:id"
                 render={({match}) => (<ConnectedTaskDetail match={match} />)} />
         </div>
     </Provider>
     </Router>
-)
+);

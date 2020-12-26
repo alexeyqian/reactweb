@@ -5,10 +5,10 @@ import {Link} from 'react-router-dom'
 
 export const TaskList = ({tasks, name, id, createNewTask}) => (
     <div>
-        <h3> {name} </h3>
+        <h3> Group: {name} </h3>
         <div> {tasks.map(task=>(
             <Link to={`/task/${task.id}`} key={task.id }>
-                <div>{task.name}</div>
+                <div>{task.name}|{task.group} | {task.isComplete?'true':'false'}</div>
             </Link>))} 
         </div>
         <button onClick={()=>createNewTask(id)}>Add New</button>
@@ -27,9 +27,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         createNewTask(id){
-            console.log("createing new task...", id);
             dispatch(requestTaskCreation(id));
-
         }
     }
 };

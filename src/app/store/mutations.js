@@ -27,3 +27,10 @@ export const setTaskName = (id, name) => ({
     taskID: id,
     name
 });
+
+
+export const setTaskGroup = (taskID, groupID) => ({
+    type: SET_TASK_GROUP,
+    taskID,
+    groupID
+});

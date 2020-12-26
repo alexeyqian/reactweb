@@ -15,7 +15,7 @@ const TaskDetail = ({
     })=>(
         <div>
             <div>
-                <input onChange={setTaskName} vlaue={task.name} />
+                <input onChange={setTaskName} value={task.name} />
             </div>
 
             <div>
@@ -44,6 +44,7 @@ const TaskDetail = ({
 
 function mapStateToProps(state, ownProps) {
     let id = ownProps.match.params.id;
+    console.log('idx', id);
     let task = state.tasks.find(task=>task.id === id);
     let comments = state.comments.filter(comment=>comment.task === id);
 
@@ -58,12 +59,12 @@ function mapStateToProps(state, ownProps) {
 }
 
 function mapDispatchToProps(dispatch, ownProps){
-    const id = ownProps.match.params.id;
+    let id = ownProps.match.params.id;
     return{
         setTaskCompletion(id, isComplete){
             dispatch(mutations.setTaskCompletion(id, isComplete));
         },
-        setTaskGroup(id, e){
+        setTaskGroup(e){
             dispatch(mutations.setTaskGroup(id, e.target.value));
         },
         setTaskName(e){
